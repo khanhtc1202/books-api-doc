@@ -1,0 +1,40 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# b@@ks
+
+API docs for b@@ks app team.
+
+Collection list:
+
+1. titles
+2. books
+3. bookshelfs
+4. users
+5. transactions
+
+## Titles Collection [/books]
+
+### Get Title by name [GET]
+
+Api for search title by title name (in search page)
+
++ Request (application/json)
+
+    {
+        "title": "sample name",
+        "categories": [
+            "tech",
+            "IT"
+        ]
+    }
+        
+    + Attributes
+        + title: sample name (string, required) - String that point to title you want to search
+        + categories: tech, IT (array[string], required) - List categories that related with title
+
++ Response 200 (application/json)
+
+        {
+            
+        }

@@ -15,7 +15,7 @@ Collection list:
 
 ## Titles Collection [/books]
 
-### Get Title by name [GET]
+### Get Titles by name [GET]
 
 Api for search title by title name (in search page)
 
@@ -36,5 +36,45 @@ Api for search title by title name (in search page)
 + Response 200 (application/json)
 
         {
-            
+            "results": [
+                {
+                    "id": 101,
+                    "title": "sample title 1",
+                    "cover": "https://i.imgur.com/aylj7Xw.jpg",
+                    "author": "sample author 1"
+                },
+                {
+                    "id": 102
+                    "title": "sample title 2",
+                    "cover": "https://i.imgur.com/aylj7Xw.jpg",
+                    "author": "sample author 2"
+                }
+            ]
+        }
+        
+## Title Detail [/book/{id}]
+### Get Title Detail [GET]
+
+Api for search title by id (detail page)
+
++ Request (application/json)
+
+    {
+        "id": 109
+    }
+        
+    + Attributes
+        + id: 101 (number, required) - Id that point to title you want to search
+
++ Response 200 (application/json)
+
+        {
+            "title": "sample title",
+            "author": "J.K Rowling",
+            "summary": "insert summary here",
+            "categories": [
+                "tech",
+                "IT"
+            ],
+            "rating": 4.7
         }

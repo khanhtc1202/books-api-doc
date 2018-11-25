@@ -13,7 +13,7 @@ Collection list:
 4. users
 5. transactions
 
-## Titles Collection [/books]
+## Titles Collection [/titles]
 
 ### Get Titles by name [GET]
 
@@ -38,13 +38,11 @@ Api for search title by title name (in search page)
         {
             "results": [
                 {
-                    "id": 101,
                     "title": "sample title 1",
                     "cover": "https://i.imgur.com/aylj7Xw.jpg",
                     "author": "sample author 1"
                 },
                 {
-                    "id": 102,
                     "title": "sample title 2",
                     "cover": "https://i.imgur.com/aylj7Xw.jpg",
                     "author": "sample author 2"
@@ -52,10 +50,10 @@ Api for search title by title name (in search page)
             ]
         }
         
-## Title Detail [/book/{id}]
+## Title Detail [/title/{id}]
 ### Get Title Detail [GET]
 
-Api for search title by id (detail page)
+Api for getting title data from id
 
 + Request (application/json)
 
@@ -79,16 +77,12 @@ Api for search title by id (detail page)
             "rating": 4.7,
             "reviews": [
                 {
-                    "id": 1,
-                    "user_id": 1,
                     "username": "sample user",
                     "date": "1/1/2018",
                     "content": "sample content",
                     "rating": 4.0
                 },
                 {
-                    "id": 2,
-                    "user_id": 1,
                     "username": "sample user",
                     "content": "sample content",
                     "rating": 4.0
@@ -96,11 +90,41 @@ Api for search title by id (detail page)
             ],
             "books": [
                 {
-                    "id": 1,
                     "image": "https://i.imgur.com/aylj7Xw.jpg",
                     "username": "sample user",
                     "date": "1/1/2018",
                     "status": "available"
+                }
+            ]
+        }
+        
+## Available Books from Title [/title/{id}/available]
+### Get Available Books of a Title [GET]
+
+Api for getting available books from title id
+
++ Request (application/json)
+
+    {
+        "id": 109
+    }
+        
+    + Attributes
+        + id: 101 (number, required) - Id that point to title you want to search
+
++ Response 200 (application/json)
+
+        {
+            "results": [
+                {
+                    "owner": "Owner A",
+                    "image": "https://i.imgur.com/aylj7Xw.jpg",
+                    "status": 1
+                },
+                {
+                    "owner": "Owner B",
+                    "image": "https://i.imgur.com/aylj7Xw.jpg",
+                    "status": 0
                 }
             ]
         }
